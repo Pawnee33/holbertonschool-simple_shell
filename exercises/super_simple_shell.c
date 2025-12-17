@@ -20,10 +20,9 @@ int main(void)
 		}
 		args = str_tok(line);
 		fork_execv_wait(args);
-	
+
 		free(args);
-		free(line);	
+		free(line);
 	}
 	return (0);
 }
-	
