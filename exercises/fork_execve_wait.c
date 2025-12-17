@@ -1,32 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
-
-int main(void)
+#include "shell.h"
+/**
+* fork_execv_wait - create a child processus
+* that executes the command
+* @args: the command to executes
+*
+* Return: void
+*/
+void fork_execv_wait(char **args)
 {
 	pid_t pid;
-	char *args[] ={"/bin/ls", "-l", "/tmp", NULL};
-	int slider;
 
-	for (slider = 0; slider < 5; slider++)
+	pid = fork();
+
+	if (pid == 0)
 	{
-		pid = fork();
-
-		if (pid == 0)
-		{
-			execve("/bin/ls", args, NULL);
-			perror("execve");
-			exit(EXIT_FAILURE);
-		}
-		else if (pid > 0)
-		{
-			wait(NULL);
-		}
-		else
-		{
-			perror("fork");
-		}
+		execve("/bin/ls", args, NULL);
+		perror("execve");
+		exit(EXIT_FAILURE);
 	}
-	return (0);
+	else if (pid > 0)
+	{
+		wait(NULL);
+	}
+	else
+	{
+		perror("fork");
+	}
 }

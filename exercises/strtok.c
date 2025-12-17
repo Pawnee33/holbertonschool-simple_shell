@@ -1,29 +1,24 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int main(void)
+#include "shell.h"
+/**
+* str_tok - separates each token from
+* the line
+* @line: The line tu cut each token
+*
+* Return: args
+*/
+char **str_tok(char *line)
 {
-	char *line = NULL, *separator = " \t\n";
+	char *separator = " \t\n";
 	char **args, *token;
 	int slider;
-	size_t len = 0;
-	ssize_t read;
 
-	while (1)
+
+	args = malloc(sizeof(char *) * 10);
+	if (args == NULL)
 	{
-		printf("$ ");
-		fflush(stdout);
-
-		read = getline(&line, &len, stdin);
-
-		if (read == -1)
-		{
-			printf("\n");
-			break;
-		}
-	
-	args = malloc(sizeof(char *) *10);
+		perror("malloc");
+		exit(EXIT_FAILURE);
+	}
 	slider = 0;
 
 	token = strtok(line, separator);
@@ -34,11 +29,5 @@ int main(void)
 		token = strtok(NULL, separator);
 	}
 	args[slider] = NULL;
-
-	for (int i = 0; args[i] != NULL; i++)
-		printf("arg[%d] = %s\n", i, args[i]);
-	free(args);
-	}
-	free(line);
-	return (0);
+	return (args);
 }
