@@ -7,6 +7,8 @@
 #include <sys/wait.h>
 #include <string.h>
 
+void print_pid(void);
+void print_ppid(void);
 char *get_line(void);
 char **str_tok(char *line);
 void fork_execv_wait(char **args);
