@@ -1,16 +1,14 @@
-#include <stdio.h>
-#include <unistd.h>
-
+#include "shell.h"
 /**
- * main - PPID
+ * print_ppid - Prints the ID of the parent processus
  *
- * Return: Always 0.
+ * Return: void
  */
-int main(void)
+void print_ppid(void)
 {
-    pid_t my_ppid;
+	pid_t my_ppid;
 
-    my_ppid = getppid();
-    printf("%d\n", my_ppid);
-    return (0);
+	my_ppid = getppid();
+	printf("%d\n", my_ppid);
+
 }

@@ -1,16 +1,13 @@
-#include <stdio.h>
-#include <unistd.h>
-
+#include "shell.h"
 /**
- * main - PID
+ * print_pid - Prints the ID of the child processus
  *
- * Return: Always 0.
+ * Return: void
  */
-int main(void)
+void print_pid(void)
 {
-    pid_t my_pid;
+	pid_t my_pid;
 
-    my_pid = getpid();
-    printf("%u\n", my_pid);
-    return (0);
+	my_pid = getpid();
+	printf("%u\n", my_pid);
 }

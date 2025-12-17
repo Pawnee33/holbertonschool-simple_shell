@@ -14,7 +14,9 @@ void fork_execv_wait(char **args)
 
 	if (pid == 0)
 	{
-		execve("/bin/ls", args, NULL);
+		print_pid();
+		print_ppid();
+		execve(args[0], args, NULL);
 		perror("execve");
 		exit(EXIT_FAILURE);
 	}
