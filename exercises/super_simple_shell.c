@@ -4,12 +4,13 @@
 *
 * Return: 0
 */
-int main(void)
+int main(int ac, char **av, char **env)
 {
 	char *line;
 	char **args;
 
-
+	(void)ac;
+	(void)av;
 	while (1)
 	{
 		line = get_line();
@@ -19,7 +20,7 @@ int main(void)
 			break;
 		}
 		args = str_tok(line);
-		fork_execv_wait(args);
+		fork_execv_wait(args, env);
 
 		free(args);
 		free(line);
