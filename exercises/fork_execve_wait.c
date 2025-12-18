@@ -17,7 +17,7 @@ void fork_execv_wait(char **args, char **env)
 		return;
 	}
 	pid = fork();
-	
+
 	if (pid == 0)
 	{
 		if (execve(entire_path, args, env) == -1)
