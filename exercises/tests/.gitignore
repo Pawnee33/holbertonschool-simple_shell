@@ -1,8 +1,0 @@
-*
-!.gitignore
-!.md
-!*.c
-!*.h
-!tests/*
-!tests
-!*-O
