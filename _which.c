@@ -19,6 +19,32 @@ char *search_path(char **env)
 	return (path);
 }
 /**
+* rebuild_path - build the entire path
+* @order: command to search in PATH
+* @folder: command name to append
+* Return: entire path
+*/
+char *rebuild_path(char *folder, char *order)
+{
+	char *slash = "/";
+	char *entire_path;
+
+	if (order[0] == slash[0])
+	{
+		return (strdup(order));
+	}
+	entire_path = malloc(strlen(folder) + 1 + strlen(order) + 1);
+	if (entire_path == NULL)
+		return (NULL);
+	else
+	{
+		strcpy(entire_path, folder);
+		strcat(entire_path, slash);
+		strcat(entire_path, order);
+	}
+	return (entire_path);
+}
+/**
 * _which - find the PATH of a command in the env
 * @env: environment variables to finds PATH
 * @order: command to search in PATH
@@ -27,7 +53,7 @@ char *search_path(char **env)
 char *_which(char *order, char **env)
 {
 	char *folder, *entire_path, *path_dup, *path = NULL;
-	char *delimiter = ":", *slash = "/";
+	char *delimiter = ":";
 	struct stat st;
 
 	path = search_path(env);
@@ -39,20 +65,11 @@ char *_which(char *order, char **env)
 	folder = strtok(path_dup, delimiter);
 	while (folder != NULL)
 	{
-		entire_path = malloc(strlen(folder) + 1 + strlen(order) + 1);
+		entire_path = rebuild_path(folder, order);
 		if (entire_path == NULL)
 		{
-			perror("malloc");
 			free(path_dup);
 			return (NULL);
-		}
-		if (order[0] == slash)
-			strcpy(entire_path, order);
-		else
-		{
-		strcpy(entire_path, folder);
-		strcat(entire_path, slash);
-		strcat(entire_path, order);
 		}
 		if (stat(entire_path, &st) == 0)
 		{
