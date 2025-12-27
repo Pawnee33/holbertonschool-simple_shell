@@ -22,6 +22,7 @@ void fork_execv_wait(char **args, char **env)
 	{
 		if (execve(entire_path, args, env) == -1)
 			perror("execve");
+		free(entire_path);
 		exit(EXIT_FAILURE);
 	}
 	else if (pid > 0)
