@@ -6,7 +6,7 @@
 *
 * Return: args
 */
-char **str_tok(char *line)
+char **str_tok(char *line, int single_order)
 {
 	char *separator = " \t\n";
 	char **args, *token;
@@ -22,6 +22,12 @@ char **str_tok(char *line)
 	slider = 0;
 
 	token = strtok(line, separator);
+	if (single_order != 0)
+	{
+		args[0] = token;
+		args[1] = NULL;
+		return (args);
+	}
 	while (token != NULL)
 	{
 		args[slider] = token;

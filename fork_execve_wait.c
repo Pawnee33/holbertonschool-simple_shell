@@ -6,7 +6,7 @@
 *
 * Return: void
 */
-void fork_execv_wait(char **args, char **env)
+void fork_execv_wait(char **args, char **env, char *programme)
 {
 	pid_t pid;
 	char *entire_path;
@@ -21,7 +21,7 @@ void fork_execv_wait(char **args, char **env)
 	}
 	if (entire_path == NULL)
 	{
-		fprintf(stderr, "%s: command not found\n", args[0]);
+		fprintf(stderr, "%s: 1: %s: not found\n", programme, args[0]);
 		return;
 	}
 	pid = fork();
