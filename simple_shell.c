@@ -22,8 +22,8 @@ int main(int ac, char **av, char **env)
 		args = str_tok(line);
 		fork_execv_wait(args, env);
 
-		free(args);
 		free(line);
+		free(args);
 	}
 	return (0);
 }

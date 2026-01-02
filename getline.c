@@ -10,8 +10,11 @@ char *get_line(void)
 	size_t len = 0;
 	ssize_t read;
 
-	printf("($) ");
-	fflush(stdout);
+	if (isatty(STDIN_FILENO))
+	{
+		printf("($) ");
+		fflush(stdout);
+	}
 
 	read = getline(&line, &len, stdin);
 

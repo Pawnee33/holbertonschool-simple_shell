@@ -9,8 +9,16 @@
 void fork_execv_wait(char **args, char **env)
 {
 	pid_t pid;
-	char *entire_path = _which(args[0], env);
+	char *entire_path;
 
+	if (strchr(args[0], '/'))
+	{
+		entire_path = strdup(args[0]);
+	}
+	else
+	{
+		entire_path = _which(args[0], env);
+	}
 	if (entire_path == NULL)
 	{
 		fprintf(stderr, "%s: command not found\n", args[0]);
