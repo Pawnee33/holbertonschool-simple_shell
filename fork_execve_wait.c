@@ -11,14 +11,7 @@ void fork_execv_wait(char **args, char **env, char *programme)
 	pid_t pid;
 	char *entire_path;
 
-	if (strchr(args[0], '/'))
-	{
-		entire_path = strdup(args[0]);
-	}
-	else
-	{
-		entire_path = _which(args[0], env);
-	}
+	entire_path = strdup(args[0]);
 	if (entire_path == NULL)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", programme, args[0]);
@@ -41,5 +34,6 @@ void fork_execv_wait(char **args, char **env, char *programme)
 	else
 	{
 		perror("fork");
+		free(entire_path);
 	}
 }

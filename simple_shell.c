@@ -14,9 +14,7 @@ int main(int ac, char **av, char **env)
 	{
 		line = get_line();
 		if (line == NULL)
-		{
 			break;
-		}
 		args = str_tok(line, 1);
 		fork_execv_wait(args, env, av[0]);
 
