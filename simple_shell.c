@@ -10,7 +10,6 @@ int main(int ac, char **av, char **env)
 	char **args;
 
 	(void)ac;
-	(void)av;
 	while (1)
 	{
 		line = get_line();
@@ -20,7 +19,7 @@ int main(int ac, char **av, char **env)
 			break;
 		}
 		args = str_tok(line);
-		fork_execv_wait(args, env);
+		fork_execv_wait(args, env, av[0]);
 
 		free(line);
 		free(args);
