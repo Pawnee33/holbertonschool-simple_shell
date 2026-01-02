@@ -29,10 +29,6 @@ char *rebuild_path(char *folder, char *order)
 	char *slash = "/";
 	char *entire_path;
 
-	if (order[0] == slash[0])
-	{
-		return (strdup(order));
-	}
 	entire_path = malloc(strlen(folder) + 1 + strlen(order) + 1);
 	if (entire_path == NULL)
 		return (NULL);

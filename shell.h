@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 
 void print_pid(void);
 void print_ppid(void);
