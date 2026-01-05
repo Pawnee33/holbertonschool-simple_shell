@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
 * main - The super simple shell
+* @ac: arguments
 *
 * Return: 0
 */
