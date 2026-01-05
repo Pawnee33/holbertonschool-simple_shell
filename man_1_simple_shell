@@ -1,0 +1,96 @@
+.TH _SIMPLE_SHELL 3 "December 2025" "Holberton Project" "User Manual"
+
+.SH NAME
+hsh \- Minimal UNIX command interpreter in C.
+
+.SH SYNOPSIS
+#include "shell.h"
+
+int main(int ac, char **av, char **env);
+
+.SH DESCRIPTION
+The \fBhsh\fR programme is a simplified UNIX command interpreter.
+It displays an interactive prompt, reads a command from standard input,
+creates a child process and attempts to execute the corresponding executable
+via the \fBexecve(2)\fR system call, passing it the environment.
+
+It is a deliberately minimal version of a shell, designed as part of
+a system programming project.
+
+.SS Operation
+At each iteration, the shell:
+.TP
+1. Displays a prompt (only if the standard input is a terminal).
+.TP
+2. Reads a command line (terminated by a line break).
+.TP
+3. Creates a child process with \fBfork(2)\fR.
+.TP
+4. Executes the command in the child process with \fBexecve(2)\fR.
+.TP
+5. Waits for the child process to finish in the parent with \fBwaitpid(2)\fR.
+.TP
+6. Redisplays the prompt after execution (successful or not).
+
+.SS Error handling
+The shell handles the following in particular:
+.IP \(bu 2
+Command not found (invalid path or file does not exist).
+.IP \(bu 2
+Process creation failed (\fBfork()\fR).
+.IP \(bu 2
+Insufficient permissions (\fBX_OK\fR required to run the programme).
+
+If the executable cannot be launched, an error message is displayed
+and the shell continues to run.
+
+.SH RETURN VALUE
+The programme ends with the code:
+.TP
+\fB0\fR
+Whether the output comes from an EOF (Ctrl+D) or a normal end.
+.PP
+The return code of executed commands is not retrieved for reuse in the shell.
+
+.SH EXAMPLES
+.nf
+#include "shell.h"
+
+int main(void)
+{
+    /* Launch the shell in interactive mode */
+    system("./hsh");
+
+    /* Example of valid execution */
+    /* User input: /bin/pwd */
+    /* Expected output: (path to the current directory) */
+
+    /* Example of invalid execution */
+    /* User input: ls */
+    /* Expected output: ./hsh: No such file or directory */
+
+    return (0);
+}
+.fi
+
+.SH NOTES
+This implementation does not support :
+.IP \(bu 2
+Automatic resolution via \fBPATH\fR (no arguments accepted without a path).
+.IP \(bu 2
+Built-ins (\fBcd\fR, \fBexit\fR, \fBenv\fR, etc.).
+.IP \(bu 2
+Redirections, pipes, separators, or special character expansions.
+.IP \(bu 2
+Moving the cursor or intercepting keyboard keys (arrows, etc.).
+.IP \(bu 2
+Commands with multiple arguments.
+
+This shell is not intended for use in production and remains an educational programme.
+
+.SH AUTHORS
+Pawnee DEFIZE et Anthony DI DOMENICO
+.SH BUGS
+Deliberately limited programme. Keyboard escape sequences are
+read as plain text and may cause execution errors,
+which is consistent with the expected behaviour of a minimal shell.
