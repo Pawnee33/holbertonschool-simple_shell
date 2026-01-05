@@ -15,8 +15,13 @@ int main(int ac, char **av, char **env)
 	{
 		line = get_line();
 		if (line == NULL)
+		{
+			printf("\n");
 			break;
-		args = str_tok(line, 1);
+		}
+		line[strcspn(line, "\n")] = '\0';
+
+		args = str_tok(line);
 		fork_execv_wait(args, env, av[0]);
 
 		free(line);
