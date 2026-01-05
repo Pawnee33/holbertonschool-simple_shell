@@ -20,9 +20,9 @@ void fork_execv_wait(char **args, char **env, char *programme)
 
 	if (pid == 0)
 	{
-		execve(args[0], args, env)
+		execve(args[0], args, env);
 
-		fprintf(stderr, "%s: 1: %s: not found\n", programme, args[0]);
+		fprintf(stderr, "%s: not found\n", programme);
 
 		exit(EXIT_FAILURE);
 	}
