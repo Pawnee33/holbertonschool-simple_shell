@@ -22,7 +22,7 @@ void fork_execv_wait(char **args, char **env, char *programme)
 	{
 		execve(args[0], args, env);
 
-		fprintf(stderr, "%s: not found\n", programme);
+		fprintf(stderr, "%s: 1: %s: not found\n", programme, args[0]);
 
 		exit(EXIT_FAILURE);
 	}

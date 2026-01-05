@@ -19,6 +19,11 @@ int main(int ac, char **av, char **env)
 		if (line == NULL)
 			break;
 		args = str_tok(line);
+		if (args == NULL)
+		{
+			free(line);
+			continue;
+		}
 		fork_execv_wait(args, env, av[0]);
 
 		free(line);
