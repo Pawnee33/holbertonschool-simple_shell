@@ -10,18 +10,23 @@ char **str_tok(char *line)
 {
 	char *separator = " \t\n";
 	char **args, *token;
+	int slider = 0;
 
 
-	args = malloc(sizeof(char *) * 2);
+	args = malloc(sizeof(char *) * 64);
 	if (args == NULL)
 	{
-		perror("malloc");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 
 	token = strtok(line, separator);
-	args[0] = token;
-	args[1] = NULL;
+	while (token != NULL)
+	{
+		args[slider] = token;
+		slider++;
+		token = strtok(NULL, separator);
+	}
+	args[slider] = NULL;
 
 	return (args);
 }
