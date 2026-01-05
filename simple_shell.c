@@ -17,7 +17,10 @@ int main(int ac, char **av, char **env)
 	{
 		line = get_line();
 		if (line == NULL)
+		{
+			printf("\n");
 			break;
+		}
 		line[strcspn(line, "\n")] = '\0';
 
 		args = str_tok(line);
