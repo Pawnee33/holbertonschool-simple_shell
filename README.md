@@ -1,24 +1,29 @@
 # 🐚 Simple Shell — `hsh`
 
-## 👀 Aperçu
+## 👀 Overview
 
-Le shell est un programme qui :
-1. affiche un prompt (si interactif),
-2. lit l’entrée utilisateur (stdin),
-3. tokenize la ligne en commande + arguments,
-4. gère les builtins,
-5. recherche la commande via `PATH` si nécessaire,
-6. exécute le programme dans un processus enfant,
-7. renvoie un code de sortie.
+A shell is a program that:
+1. displays a prompt (in interactive mode),
+2. reads user input from `stdin`,
+3. tokenizes the line into a command + arguments,
+4. handles builtins,
+5. searches for the command using `PATH` when needed,
+6. executes the program in a child process,
+7. returns an exit status.
 
 ---
 
-## ✅ Fonctionnalités
+## ✅ Features
 
-- Exécution de commandes via chemins absolus/relatifs (`/bin/ls`)
-- Résolution des commandes via la variable d’environnement `PATH`
-- Gestion des arguments
-- Gestion des erreurs (commande introuvable, permissions, etc.)
-- Mode interactif + non-interactif (pipes)
+- Execute commands using absolute/relative paths (e.g. `/bin/ls`)
+- Command lookup using the `PATH` environment variable
+- Argument parsing/handling
+- Error handling (command not found, permission denied, etc.)
+- Interactive and non-interactive modes (piping)
 
-Pawnee, Anthony D.
+---
+
+## ✍️ Authors
+
+Pawnee  
+Anthony D.
