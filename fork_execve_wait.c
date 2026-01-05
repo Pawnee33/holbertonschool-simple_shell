@@ -3,6 +3,8 @@
 * fork_execv_wait - create a child processus
 * that executes the command
 * @args: the command to executes
+* @env: environment variables
+* @programme: name of the shell
 *
 * Return: void
 */

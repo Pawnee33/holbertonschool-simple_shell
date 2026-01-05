@@ -2,6 +2,8 @@
 /**
 * main - The super simple shell
 * @ac: arguments
+* @av: array of arguments
+* @env: anvironment variables
 *
 * Return: 0
 */

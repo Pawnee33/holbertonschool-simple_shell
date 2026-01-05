@@ -32,6 +32,7 @@ char *rebuild_path(char *folder, char *order)
 	entire_path = malloc(strlen(folder) + 1 + strlen(order) + 1);
 	if (entire_path == NULL)
 		return (NULL);
+
 	else
 	{
 		strcpy(entire_path, folder);
