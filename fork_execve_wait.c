@@ -16,12 +16,12 @@ void fork_execv_wait(char **args, char **env, char *programme)
 
 	if (pid == 0)
 	{
-		if (execve(args[0], args, env) == -1)
-		{
+		if (execve(entire_path, args, env) == -1)
 			fprintf(stderr, "%s: 1: %s: not found\n", programme, args[0]);
-		}
-		exit(EXIT_FAILURE);
+			perror("execve");
 	}
+	free(entire_path);
+	exit(EXIT_FAILURE);
 	else if (pid > 0)
 	{
 		wait(NULL);
