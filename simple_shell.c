@@ -1,9 +1,7 @@
 #include "shell.h"
 /**
 * main - The super simple shell
-* @ac: numbers of arguments
-* @av: arrray of arguments
-* @env: array of environment variables
+* @ac: arguments
 *
 * Return: 0
 */
