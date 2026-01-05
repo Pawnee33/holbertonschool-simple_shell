@@ -9,6 +9,7 @@
 char **str_tok(char *line)
 {
 	char **args = malloc(sizeof(char *) * 2);
+
 	if (args == NULL)
 	{
 		perror("malloc");
@@ -17,6 +18,6 @@ char **str_tok(char *line)
 
 	args[0] = line;
 	args[1] = NULL;
-	
+
 	return (args);
 }

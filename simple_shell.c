@@ -1,6 +1,9 @@
 #include "shell.h"
 /**
 * main - The super simple shell
+* @ac: numbers of arguments
+* @av: arrray of arguments
+* @env: array of environment variables
 *
 * Return: 0
 */
@@ -16,7 +19,7 @@ int main(int ac, char **av, char **env)
 		if (line == NULL)
 			break;
 		line[strcspn(line, "\n")] = '\0';
-		
+
 		args = str_tok(line);
 		fork_execv_wait(args, env, av[0]);
 

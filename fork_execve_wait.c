@@ -3,13 +3,15 @@
 * fork_execv_wait - create a child processus
 * that executes the command
 * @args: the command to executes
+* @env: array of strings representing the shell environment
+* @programme: shell name for error messages
 *
 * Return: void
 */
 void fork_execv_wait(char **args, char **env, char *programme)
 {
 	pid_t pid;
-	
+
 	pid = fork();
 
 	if (pid == 0)
