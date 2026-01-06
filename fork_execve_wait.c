@@ -14,10 +14,10 @@ void fork_execv_wait(char **args, char **env, char *programme)
 	if (full_path == NULL)
 	{
 		errno = ENOENT;
-		perror(av0); /* av0 = ton nom de programme, ex: av[0] depuis main */
+		perror(av0);
 		return;
 	}
-	
+
 	pid_t pid;
 	char *entire_path;
 
