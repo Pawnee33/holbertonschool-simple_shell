@@ -28,5 +28,5 @@ A shell is a program that:
 
 ## ✍️ Authors
 
-Pawnee  
+Pawnee  DEFIZE
 Anthony D.
