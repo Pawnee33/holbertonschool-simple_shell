@@ -11,6 +11,7 @@ int main(int ac, char **av, char **env)
 {
 	char *line;
 	char **args;
+	int read = 0;
 
 	(void)ac;
 	while (1)
@@ -24,7 +25,18 @@ int main(int ac, char **av, char **env)
 			free(line);
 			continue;
 		}
-		fork_execv_wait(args, env, av[0]);
+		if (strcmp(args[0], "env") == 0)
+		{
+			while (env[read] != NULL)
+			{
+				printf("%s\n", env[read]);
+				read++;
+			}
+		}
+		else
+		{
+			fork_execv_wait(args, env, av[0]);
+		}
 
 		free(line);
 		free(args);
