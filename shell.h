@@ -16,6 +16,7 @@ void fork_execv_wait(char **args, char **env, char *programme);
 void print_pid(void);
 void print_ppid(void);
 char *search_path(char **env);
+char *_which(char *order, char **env);
 
 
 #endif
