@@ -5,7 +5,8 @@ int main(int ac, char **av, char **env)
 	int i;
 	char *path = NULL;
 
-	
+	if (!env)
+		return (NULL);
 
 	for (i = 0; env[i] != NULL; i++)
 	{

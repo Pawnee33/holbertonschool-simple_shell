@@ -23,6 +23,9 @@ A shell is a program that:
 
 ---
 
+## 📖 Man Page
+
+
 ## ✍️ Authors
 
 Pawnee  
