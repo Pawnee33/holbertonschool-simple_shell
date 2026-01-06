@@ -12,5 +12,5 @@ char *search_path(char **env)
 			path = env[i] + 5;
 		}
 	}
-	return (0);
+	return (path);
 }
