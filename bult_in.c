@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-* env - Prints all environment variables
+* print_env - Prints all environment variables
 * @env: Array of environment variables
 */
 void print_env(char **env)
@@ -15,9 +15,10 @@ void print_env(char **env)
 }
 /**
 * built_ins - Executes built-in functions exit and env
-* @argv: Array of commands
+* @args: Array of commands
 * @env: Environment
 * @line: Input line
+* @status: last exit status
 *
 * Return: 1 if a built-in function was executed,
 * 0 otherwise
