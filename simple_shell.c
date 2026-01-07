@@ -30,10 +30,8 @@ int main(int ac, char **av, char **env)
 			free(args);
 			continue;
 		}
-		if (strcmp(args[0], "env") == 0)
-		{
-			print_env(env);
-		}
+		if (built_ins(args, env, line, status))
+			continue;
 		else
 		{
 			status = fork_execv_wait(args, env, av[0]);
