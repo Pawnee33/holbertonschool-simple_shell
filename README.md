@@ -25,6 +25,7 @@ A shell is a program that:
 
 ## 📖 Man Page
 
+[man_1_simple_shell](./man_1_simple_shell)
 
 -----
 ## 🗺️ Flowchart
