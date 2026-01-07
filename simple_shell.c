@@ -11,7 +11,7 @@ int main(int ac, char **av, char **env)
 {
 	char *line;
 	char **args;
-	int read = 0;
+
 
 	(void)ac;
 	while (1)
@@ -25,13 +25,15 @@ int main(int ac, char **av, char **env)
 			free(line);
 			continue;
 		}
+		if (args[0] == NULL)
+		{
+			free(line);
+			free(args);
+			continue;
+		}
 		if (strcmp(args[0], "env") == 0)
 		{
-			while (env[read] != NULL)
-			{
-				printf("%s\n", env[read]);
-				read++;
-			}
+			print_env(env);
 		}
 		else
 		{
