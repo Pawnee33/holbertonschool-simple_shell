@@ -10,7 +10,7 @@
 int main(int ac, char **av, char **env)
 {
 	char *line, **args;
-	int status;
+	int status = 0;
 
 	(void)ac;
 	while (1)
