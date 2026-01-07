@@ -24,7 +24,7 @@ void fork_execv_wait(char **args, char **env, char *programme)
 	if (entire_path == NULL)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", programme, args[0]);
-		return;
+		exit(127);
 	}
 
 	pid = fork();
@@ -34,7 +34,7 @@ void fork_execv_wait(char **args, char **env, char *programme)
 		execve(entire_path, args, env);
 		fprintf(stderr, "%s: 1: %s: not found\n", programme, args[0]);
 		free(entire_path);
-		exit(EXIT_FAILURE);
+		exit(127);
 	}
 	else if (pid > 0)
 	{
