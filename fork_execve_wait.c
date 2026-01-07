@@ -8,13 +8,13 @@
 */
 void fork_execv_wait(char **args, char **env, char *programme)
 {
-	char *path_value = get_path_value(env);
-	char *full_path = resolve_command(args[0], path_value);
+	char *path_value = get_path_value(env)
+	char *full_path = resolve_command(args[0], path_value)
 
 	if (full_path == NULL)
 	{
 		errno = ENOENT;
-		perror(av0);
+		perror(av[0]);
 		return;
 	}
 
