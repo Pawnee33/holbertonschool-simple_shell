@@ -9,9 +9,8 @@
 */
 int main(int ac, char **av, char **env)
 {
-	char *line;
-	char **args;
-
+	char *line, **args;
+	int status;
 
 	(void)ac;
 	while (1)
@@ -37,7 +36,13 @@ int main(int ac, char **av, char **env)
 		}
 		else
 		{
-			fork_execv_wait(args, env, av[0]);
+			status = fork_execv_wait(args, env, av[0]);
+			if (status == 127)
+			{
+				free(line);
+				free(args);
+				exit(127);
+			}
 		}
 
 		free(line);

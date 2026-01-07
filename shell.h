@@ -12,7 +12,7 @@
 
 char *get_line(void);
 char **str_tok(char *line);
-void fork_execv_wait(char **args, char **env, char *programme);
+int fork_execv_wait(char **args, char **env, char *programme);
 void print_pid(void);
 void print_ppid(void);
 char *_which(char *order, char **env);
