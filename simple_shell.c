@@ -37,6 +37,12 @@ int main(int ac, char **av, char **env)
 		else
 		{
 			status = fork_execv_wait(args, env, av[0]);
+			if (status == 127)
+			{
+				free(line);
+				free(args);
+				exit(127);
+			}
 		}
 
 		free(line);
