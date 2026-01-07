@@ -32,6 +32,7 @@ char *rebuild_path(char *folder, char *order)
 	entire_path = malloc(strlen(folder) + 1 + strlen(order) + 1);
 	if (entire_path == NULL)
 		return (NULL);
+
 	else
 	{
 		strcpy(entire_path, folder);
@@ -50,7 +51,6 @@ char *_which(char *order, char **env)
 {
 	char *folder, *entire_path, *path_dup, *path = NULL;
 	char *delimiter = ":";
-	struct stat st;
 
 	path = search_path(env);
 	if (path == NULL)
@@ -67,7 +67,7 @@ char *_which(char *order, char **env)
 			free(path_dup);
 			return (NULL);
 		}
-		if (stat(entire_path, &st) == 0)
+		if (access(entire_path, X_OK) == 0)
 		{
 			free(path_dup);
 			return (entire_path);
