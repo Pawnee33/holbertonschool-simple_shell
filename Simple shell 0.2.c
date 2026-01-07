@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int main(int ac, char **av, char **env)
+char *search_path(char **env)
 {
 	int i;
 	char *path = NULL;
