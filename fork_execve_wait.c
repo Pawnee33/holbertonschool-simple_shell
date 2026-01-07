@@ -6,7 +6,7 @@
 * @env: environment variables
 * @programme: name of the shell
 *
-* Return: void
+* Return: 0
 */
 int fork_execv_wait(char **args, char **env, char *programme)
 {
@@ -34,11 +34,12 @@ int fork_execv_wait(char **args, char **env, char *programme)
 	{
 		execve(entire_path, args, env);
 		fprintf(stderr, "%s: 1: %s: not found\n", programme, args[0]);
+		free(entire_path);
 		exit(127);
 	}
 	else if (pid > 0)
 	{
-		wait(NULL);
+		wait(&status);
 		free(entire_path);
 		if (WIFEXITED(status))
 			return (WEXITSTATUS(status));
