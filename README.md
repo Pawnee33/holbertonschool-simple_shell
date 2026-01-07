@@ -21,12 +21,19 @@ A shell is a program that:
 - Error handling (command not found, permission denied, etc.)
 - Interactive and non-interactive modes (piping)
 
----
+----
 
 ## 📖 Man Page
 
 
+-----
+## 🗺️ Flowchart
+
+----
 ## ✍️ Authors
 
 Pawnee  DEFIZE
 Anthony D.
+
+<img width="4234" height="9740" alt="image" src="https://github.com/user-attachments/assets/2511dcb4-c723-4b25-82e7-a93be655a9af" />
+
