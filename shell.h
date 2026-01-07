@@ -18,7 +18,7 @@ void print_ppid(void);
 char *_which(char *order, char **env);
 char *rebuild_path(char *folder, char *order);
 char *search_path(char **env);
-void env(char **env);
+void print_env(char **env);
 
 
 #endif

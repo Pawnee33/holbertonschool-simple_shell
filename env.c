@@ -3,7 +3,7 @@
 * env - Prints all environment variables
 * @env: Array of environment variables
 */
-void env(char **env)
+void print_env(char **env)
 {
 	int read = 0;
 
