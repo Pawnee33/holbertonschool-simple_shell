@@ -28,6 +28,24 @@ A shell is a program that:
 [man_1_simple_shell](./man_1_simple_shell)
 
 -----
+## 📎 compile the program
+
+```bash
+  gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
+-----
+## 🕹️ command line
+
+```
+$ env
+```
+```
+$ exit
+```
+```
+$ ls /bin
+```
+----
 ## 🗺️ Flowchart
 
 <img width="4234" height="9740" alt="image" src="https://github.com/user-attachments/assets/2511dcb4-c723-4b25-82e7-a93be655a9af" />
