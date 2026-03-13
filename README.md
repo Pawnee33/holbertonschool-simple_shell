@@ -52,6 +52,6 @@ $ ls /bin
 
 ----
 ## ✍️ Authors
-
-Pawnee  DEFIZE
-Anthony D.
+Team:
+* Anthony D.: https://github.com/Anthodido
+* Pawnee DEFIZE: https://github.com/Pawnee33
